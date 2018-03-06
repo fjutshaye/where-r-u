@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/fjutshaye/node-angular-typescript-start-template.git"
+    "url": "git+https://github.com/fjutshaye/where-r-u.git"
   },
   "keywords": [
     "Node.js",
@@ -19,9 +19,9 @@
   "author": "Jeremy Jiang",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/fjutshaye/node-angular-typescript-start-template/issues"
+    "url": "https://github.com/fjutshaye/where-r-u/issues"
   },
-  "homepage": "https://github.com/fjutshaye/node-angular-typescript-start-template#readme",
+  "homepage": "https://github.com/fjutshaye/where-r-u#readme",
   "dependencies": {
     "@angular/animations": "^5.2.0",
     "@angular/common": "^5.2.0",

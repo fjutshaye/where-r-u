@@ -5,6 +5,9 @@ export abstract class RouterTemplate {
         this.router = express.Router();
         this.setRouters();
     }
-    public router: express.Router;
+    protected router: express.Router;
     protected abstract setRouters();
+    public getRouter(): express.Router {
+        return this.router;
+    }
 }

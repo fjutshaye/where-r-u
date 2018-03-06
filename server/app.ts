@@ -18,7 +18,7 @@ class App {
         console.log('setting middle wares');
     }
     protected setupRoutes(): void {
-        this.express.use('/api', new ApiRouter().router);
+        this.express.use('/api', new ApiRouter().getRouter());
         this.express.use('/', express.static(path.join(__dirname, '../public')));
         this.express.get('*', (req, res) => { res.sendFile(path.join(__dirname, '../public/index.html')); });
         console.log('settting routers');

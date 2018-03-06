@@ -1,10 +1,8 @@
 import { RouterTemplate } from './router.template';
+import { IpGeo } from './ipgeo/ipgeo';
 
 export class ApiRouter extends RouterTemplate {
     protected setRouters() {
-        this.router.get('/', function(req, res) {
-            console.log('API is working');
-            res.send(`Hi ${req.ip}, API router is working.`);
-        })
+        this.router.use('/ipgeo', new IpGeo().getRouter());
     }
 }
