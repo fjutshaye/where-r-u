@@ -19,7 +19,9 @@ class IpGeoRouter extends router_template_1.RouterTemplate {
             return __awaiter(this, void 0, void 0, function* () {
                 res.type('json');
                 // let ip = "99.250.163.119";
-                let ip = req.ip;
+                let ip = req.connection.remoteAddress;
+                console.log(Date());
+                console.log(ip);
                 if (!validate(ip)) {
                     const resData = {
                         statusCode: 1,

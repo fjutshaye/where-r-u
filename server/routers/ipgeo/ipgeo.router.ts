@@ -10,7 +10,7 @@ export class IpGeoRouter extends RouterTemplate {
         this.router.post('/', async function(req, res) {
             res.type('json');
             // let ip = "99.250.163.119";
-            let ip = req.ip;
+            let ip = req.connection.remoteAddress;
             console.log(Date());
             console.log(ip);
             if(!validate(ip)){
