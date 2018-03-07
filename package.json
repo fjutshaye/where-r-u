@@ -1,11 +1,11 @@
 {
-  "name": "angular-typescript-start-template",
+  "name": "where-r-u",
   "version": "1.0.0",
-  "description": "a start template for Nodejs and Angular, using typescript",
-  "main": "index.js",
+  "description": "show your location on Google Map by checking your IP address",
+  "main": "./dist/server/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "concurrently \"ng build --watch\" \"tsc -w -p server\""
+    "dev": "concurrently \"ng build --watch\" \"tsc -w -p server\"",
+    "start": "PORT=80 node dist/server/server.js"
   },
   "repository": {
     "type": "git",
@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/fjutshaye/where-r-u#readme",
   "dependencies": {
+    "@agm/core": "^1.0.0-beta.2",
     "@angular/animations": "^5.2.0",
     "@angular/common": "^5.2.0",
     "@angular/compiler": "^5.2.0",
@@ -34,7 +35,13 @@
     "@angular/router": "^5.2.0",
     "core-js": "^2.4.1",
     "express": "^4.16.2",
+    "mongoose": "^5.0.9",
+    "ngx-bootstrap": "^2.0.2",
+    "request": "^2.83.0",
+    "request-promise-native": "^1.0.5",
     "rxjs": "^5.5.6",
+    "typegoose": "^4.0.1",
+    "validate-ip": "^1.0.1",
     "zone.js": "^0.8.19"
   },
   "devDependencies": {
@@ -46,6 +53,8 @@
     "@types/jasmine": "~2.8.3",
     "@types/jasminewd2": "~2.0.2",
     "@types/node": "~6.0.60",
+    "@types/request": "^2.47.0",
+    "@types/request-promise-native": "^1.0.14",
     "codelyzer": "^4.0.1",
     "concurrently": "^3.5.1",
     "jasmine-core": "~2.8.0",

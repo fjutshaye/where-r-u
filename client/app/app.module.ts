@@ -4,6 +4,11 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { MainframeComponent } from './components/mainframe/mainframe.component';
+import { RecordService } from './services/record/record.service';
+
+import { AccordionModule } from 'ngx-bootstrap';
+import { AlertModule } from 'ngx-bootstrap';
+import { AgmCoreModule } from '@agm/core';
 
 
 @NgModule({
@@ -13,9 +18,14 @@ import { MainframeComponent } from './components/mainframe/mainframe.component';
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    AccordionModule.forRoot(),
+    AlertModule.forRoot(),
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyA-omf-NNlEj7dtnlRVzBANGzN637E1Goc'
+    })
   ],
-  providers: [],
+  providers: [RecordService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,7 +1,9 @@
 import * as express from 'express';
 import * as path from 'path';
+import * as bodyParser from 'body-parser';
 
 import { ApiRouter } from './routers/api';
+import databaseConfig from './configs/database.config';
 
 
 class App {
@@ -16,6 +18,8 @@ class App {
 
     protected setupMiddleWares(): void {
         console.log('setting middle wares');
+        this.express.use(bodyParser.json());
+        databaseConfig.getConnection();
     }
     protected setupRoutes(): void {
         this.express.use('/api', new ApiRouter().getRouter());

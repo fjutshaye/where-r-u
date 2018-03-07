@@ -1,1 +1,41 @@
-<button class="btn btn-primary" (click)="postIp()">Provide us your IP</button>
+<!-- <button class="btn btn-danger" (click)="temp_postFgeo()">Test Post Record</button> -->
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3">
+            <accordion *ngFor="let record of records_groupby_ip">
+                <accordion-group>
+                    <div accordion-heading class="clearfix">
+                        {{record._id.ip}}
+                    </div>
+                    <ul class="nav flex-column">
+                        <li>Longitude: {{record._id.longitude}}</li>
+                        <li>Latitude: {{record._id.latitude}}</li>
+                        <li>City: {{record._id.city}}</li>
+                        <li>Region: {{record._id.region_name}}</li>
+                        <li>Country: {{record._id.country_name}}</li>
+                        <li>Total Visit: {{record.count}}</li>
+                    </ul>
+                </accordion-group>
+            </accordion>
+        </div>
+        <div class="col-md-9">
+            <!-- GOOGLE MAP AREA !!! -->
+            <!-- this creates a google map on the page with the given lat/lng from -->
+            <!-- the component as the initial center of the map: -->
+            <agm-map [latitude]="0" [longitude]="180" [zoom]="2" [minZoom]="2">
+                <agm-marker *ngFor="let record of records_groupby_ip"
+                 [latitude]="record._id.latitude" [longitude]="record._id.longitude">
+                </agm-marker>
+            </agm-map>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <button class="btn btn-primary" (click)="postIp()">Leave a Marker</button>
+    </div>
+    <div class="row">
+        <alert class="col-12" type="warning" *ngFor="let message of messages">
+            {{message}}
+        </alert>
+    </div>
+</div>
