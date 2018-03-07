@@ -11,6 +11,8 @@ export class IpGeoRouter extends RouterTemplate {
             res.type('json');
             // let ip = "99.250.163.119";
             let ip = req.ip;
+            console.log(Date());
+            console.log(ip);
             if(!validate(ip)){
                 const resData: IIpgeoResponse = {
                     statusCode: 1,
