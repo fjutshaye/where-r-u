@@ -11,7 +11,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const router_template_1 = require("../router.template");
 const record_model_1 = require("../../models/record/record.model");
 const http = require("http");
-const validate = require("validate-ip");
 class IpGeoRouter extends router_template_1.RouterTemplate {
     setRouters() {
         // POST IP address
@@ -22,13 +21,13 @@ class IpGeoRouter extends router_template_1.RouterTemplate {
                 let ip = req.connection.remoteAddress;
                 console.log(Date());
                 console.log(ip);
-                if (!validate(ip)) {
-                    const resData = {
+                /* if(!validate(ip)){
+                    const resData: IIpgeoResponse = {
                         statusCode: 1,
                         statusMessage: "Invalid IP Address"
-                    };
+                    }
                     return res.send(resData);
-                }
+                } */
                 const url = "http://freegeoip.net/json/" + ip;
                 http.get(url, (fgeoRes) => {
                     let buffers = '';

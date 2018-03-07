@@ -13,13 +13,13 @@ export class IpGeoRouter extends RouterTemplate {
             let ip = req.connection.remoteAddress;
             console.log(Date());
             console.log(ip);
-            if(!validate(ip)){
+            /* if(!validate(ip)){
                 const resData: IIpgeoResponse = {
                     statusCode: 1,
                     statusMessage: "Invalid IP Address"
                 }
                 return res.send(resData);
-            }
+            } */
             const url = "http://freegeoip.net/json/" + ip;
             http.get(url, (fgeoRes)=>{
                 let buffers = '';
