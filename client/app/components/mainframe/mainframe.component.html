@@ -2,6 +2,16 @@
 
 <div class="container-fluid">
     <div class="row">
+        <div class="col-md-9">
+            <!-- GOOGLE MAP AREA !!! -->
+            <!-- this creates a google map on the page with the given lat/lng from -->
+            <!-- the component as the initial center of the map: -->
+            <agm-map [latitude]="40" [longitude]="-30" [zoom]="3" [minZoom]="3">
+                <agm-marker *ngFor="let record of records_groupby_ip"
+                 [latitude]="record._id.latitude" [longitude]="record._id.longitude">
+                </agm-marker>
+            </agm-map>
+        </div>
         <div class="col-md-3">
             <accordion *ngFor="let record of records_groupby_ip">
                 <accordion-group>
@@ -18,16 +28,6 @@
                     </ul>
                 </accordion-group>
             </accordion>
-        </div>
-        <div class="col-md-9">
-            <!-- GOOGLE MAP AREA !!! -->
-            <!-- this creates a google map on the page with the given lat/lng from -->
-            <!-- the component as the initial center of the map: -->
-            <agm-map [latitude]="0" [longitude]="180" [zoom]="2" [minZoom]="2">
-                <agm-marker *ngFor="let record of records_groupby_ip"
-                 [latitude]="record._id.latitude" [longitude]="record._id.longitude">
-                </agm-marker>
-            </agm-map>
         </div>
     </div>
     <div class="row justify-content-center">
